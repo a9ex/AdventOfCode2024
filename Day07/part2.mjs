@@ -14,7 +14,7 @@ const input = fs
       .map(Number),
   ]);
 
-const answers = [];
+let answers = [];
 let result = 0;
 
 for (const line of input) {
@@ -26,6 +26,7 @@ for (const line of input) {
       answers.push(answer * line[1][i]);
       answers.push(Number("" + answer + line[1][i]));
     }
+    answers = answers.filter((answer) => answer <= Number(line[0]));
   }
   if (answers.filter((answer) => answer === Number(line[0])).length) result += Number(line[0]);
   answers.length = 0;
